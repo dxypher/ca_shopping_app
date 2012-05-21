@@ -1,0 +1,23 @@
+<h1>Products</h1>
+
+<table>
+<thead>
+	<tr>
+		<th>Brand</th>
+		<th>Product</th>
+		<th>Price</th>
+	</tr>
+</thead>
+<tbody>
+	<% @products.each do |product| %>
+	<tr>
+		<td><%= link_to product.brand.name, brand_url(product.brand.id) %></td>
+		<td><%= link_to product.name, product_url(product.id) %></td>
+		<td><%= product.reviews.average('rating') %></td>
+		<td><%= number_to_currency(product.price)%></td>
+	</tr>
+
+	<%end%>
+</tbody>
+
+</table>

@@ -1,0 +1,25 @@
+<h1><%= @brand.name %></h1><p>Brand Rating:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= product.price %></td>
+		</tr>
+		<%end%>
+	</tbody>
+
+
+
+</table>
+
+
+

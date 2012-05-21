@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="header">
+  <h1><%= link_to "SouvenirShop", root_url %></h1>
+
+  <% if @user %>
+    <p>Hello, <%= @user.username %>
+    <%= link_to "Logout", logout_url %>
+    | <%= link_to "Add a New Product", new_product_url  %></p>
+  <% else %>
+    <%= link_to "Login", new_session_url %>
+  <% end %>
+</div>
+
+<% if flash[:notice] %>
+  <p style="color: white; background: red; padding: 4px">
+  <%= flash[:notice] %>
+  </p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
